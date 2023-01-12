@@ -1,4 +1,6 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Diagnostics.Metrics;
 using System.Globalization;
 using System.Runtime.ConstrainedExecution;
 
@@ -8,34 +10,32 @@ namespace Curso
     {
         static void Main(string[] args)
         {
-            //EXERCÍCIO 02:
-            //Fazer um programa para ler os dados de um funcionário(nome,
-            //    salário bruto e imposto). Em seguida, mostrar os dados do
-            //    funcionário(nome e salário líquido).Em seguida, aumentar o salário
-            //    do funcionário com base em uma porcentagem dada(somente o
-            //    salário bruto é afetado pela porcentagem) e mostrar
-            //novamente os dados do funcionário.Use a classe projetada abaixo.
+            //            EXERCÍCIO 03:
+            //Fazer um programa para ler o nome de um aluno e as três notas que ele obteve nos três trimestres do ano
+            //(primeiro trimestre vale 30 e o segundo e terceiro valem 35 cada).Ao final, mostrar qual a nota final do aluno no
+            //ano.Dizer também se o aluno está APROVADO ou REPROVADO e, em caso negativo, quantos pontos faltam
+            // para o aluno obter o mínimo para ser aprovado(que é 60 pontos). Você deve criar uma classe Aluno para resolver
+            //este problema.
+            
+            Aluno aluno = new Aluno();
 
-            Funcionario funcionario = new Funcionario();
+            Console.Write("Nome do aluno: ");
+            aluno.Nome = Console.ReadLine();
+            Console.WriteLine("Digite as três notas do aluno:");
+            aluno.Nota1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            aluno.Nota2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            aluno.Nota3 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
 
-            Console.WriteLine("Digite os dados do funcionário:");
-            Console.Write("Nome: ");
-            funcionario.Nome = Console.ReadLine();
-            Console.Write("Salário bruto: ");
-            funcionario.SalarioBruto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            Console.Write("Imposto: "); 
-            funcionario.Imposto = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            Console.WriteLine();
-
-            Console.WriteLine($"Funcionário: {funcionario}");
-            Console.WriteLine();
-
-            Console.Write("Digite a porcentagem para aumentar o salário: ");
-            double porcentagem = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            funcionario.AumentarSalario(porcentagem);
-            Console.WriteLine();
-
-            Console.WriteLine($"Dados atualizados: {funcionario}");
+            Console.WriteLine($"NOTA FINAL: {aluno.NotaFinal().ToString("F2", CultureInfo.InvariantCulture)}");
+            if (aluno.Aprovado())
+            {
+                Console.WriteLine("APROVADO");
+            }
+            else
+            {
+                Console.WriteLine("REPROVADO");
+                Console.WriteLine($"FALTARAM {aluno.NotaRestante().ToString("F2", CultureInfo.InvariantCulture)} PONTOS");
+            }
         }
 
     }
