@@ -18,9 +18,9 @@ namespace AulaCinco
             Titular = titular;
         }
 
-        public ContaBancaria(int numeroConta, string? titular, double saldo) : this(numeroConta, titular)
+        public ContaBancaria(int numeroConta, string? titular, double depositoInicial) : this(numeroConta, titular)
         {
-            Saldo = saldo;
+            Deposito(depositoInicial);
         }
 
         public void Deposito(double quantia)
