@@ -5,12 +5,17 @@ namespace AulaCinco
 {
     public class Produto
     {
+        //*Ordem sugerida para implementação de membros*
 
+        //* Atributos privados *
         //auto propertie {get; set;}
         private string? _nome;
+
+        //* Propriedades autoimplementadas *
         public double Preco { get; private set; }
         public int Quantidade { get; private set; }
 
+        //* Construtores *
         //construtor padrão
         public Produto() { }
 
@@ -22,6 +27,7 @@ namespace AulaCinco
             Quantidade = quantidade;
         }
 
+        //* Propriedades customizadas *
         //propertie
         public string Nome
         {
@@ -36,6 +42,8 @@ namespace AulaCinco
             }
         }
 
+
+        //* Outros métodos da classe *
         public double ValorTotalEmEstoque()
         {
             return Preco * Quantidade;
