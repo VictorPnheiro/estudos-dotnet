@@ -6,45 +6,45 @@ namespace AulaCinco
     {
         static void Main(string[] args)
         {
+            ContaBancaria conta;
 
+            Console.Write("Entre o número da conta: ");
+            int numeroConta = int.Parse(Console.ReadLine());
 
-            Produto p = new Produto("TV", 500, 10);
+            Console.Write("Entre o titular da conta: ");
+            string titular = Console.ReadLine();
 
-            p.Nome ="TV 4K";
+            Console.Write("Haverá depósito inicial (s/n)? ");
+            char rsp = char.Parse(Console.ReadLine());
+            if (rsp == 's' || rsp == 'S')
+            {
+                Console.Write("Entre o valor de depósito inicial: ");
+                double depositoInicial = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                conta = new ContaBancaria(numeroConta, titular, depositoInicial);
+            }
+            else
+            {
+                conta = new ContaBancaria(numeroConta, titular);
+            }
 
-            Console.WriteLine(p.Nome);
-            Console.WriteLine(p.Preco);
+            Console.WriteLine();
+            Console.WriteLine("Dados da conta:");
+            Console.WriteLine(conta);
 
-            //Console.WriteLine("Entre os dados do produto:");
-            //Console.Write("Nome: ");
-            //string nome = Console.ReadLine();
-            //Console.Write("Preço: ");
-            //double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-            //Console.Write("Quantidade no estoque: ");
-            //int quantidade = int.Parse(Console.ReadLine());
+            Console.WriteLine();
+            Console.Write("Entre um valor para depósito: ");
+            double quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.Deposito(quantia);
+            Console.WriteLine("Dados da conta atualizados:");
+            Console.WriteLine(conta);
 
-            ////chamando classe com o construtor
-            //Produto p = new Produto(nome, preco, quantidade);
+            Console.WriteLine();
+            Console.Write("Entre um valor para saque: ");
+            quantia = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+            conta.Saque(quantia);
+            Console.WriteLine("Dados da conta atualizados:");
+            Console.WriteLine(conta);
 
-           
-            //Console.WriteLine();
-            //Console.WriteLine("Dados do produto: " + p);
-
-            //Console.WriteLine();
-            //Console.Write("Digite o número de produtos a ser adicionado ao estoque: ");
-            //int qte = int.Parse(Console.ReadLine());
-            //p.AdicionarProdutos(qte);
-
-            //Console.WriteLine();
-            //Console.WriteLine("Dados atualizados: " + p);
-
-            //Console.WriteLine();
-            //Console.Write("Digite o número de produtos a ser removido do estoque: ");
-            //qte = int.Parse(Console.ReadLine());
-            //p.RemoverProdutos(qte);
-
-            //Console.WriteLine();
-            //Console.WriteLine("Dados atualizados: " + p);
         }
     }
 }
