@@ -25,8 +25,7 @@ namespace AulaCinco
         //    //Por padrao, int já vem com zero
         //    //Quantidade = 0;
         //}
-
-        //sobrecarga para que funcione sem construtor construtor
+        // (construtor padrao) - sobrecarga para que funcione sem construtor 
         public Produto() { }
 
         public double ValorTotalEmEstoque()
