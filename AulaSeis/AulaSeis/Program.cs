@@ -6,28 +6,33 @@ namespace AulaSeis
     {
         static void Main(string[] args)
         {
+            Estudante[] vetor = new Estudante[10];
+
+            Console.Write("Quantos quartos serão alugados? ");
             int n = int.Parse(Console.ReadLine());
 
-            Produto[] produtos = new Produto[n];
-
             for (int i = 0; i < n; i++)
             {
+                Console.WriteLine();
+                Console.WriteLine($"Aluguel #{i+1}");
+                Console.Write("Nome: ");
                 string nome = Console.ReadLine();
-                double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
-                produtos[i] = new Produto { Nome = nome, Preco = preco };
+                Console.Write("Email: ");
+                string email = Console.ReadLine();
+                Console.Write("Quarto: ");
+                int quarto = int.Parse(Console.ReadLine());
+                vetor[quarto] = new Estudante(nome, email);
             }
 
-            double soma = 0;
-
-            for (int i = 0; i < n; i++)
+            Console.WriteLine();
+            Console.WriteLine("Quartos ocupados:");
+            for (int i = 0; i < 10; i++)
             {
-                soma += produtos[i].Preco;
+                if (vetor[i] != null)
+                {
+                    Console.WriteLine($"{i}: {vetor[i]}");
+                }
             }
-
-            double media = soma / n;
-
-            Console.WriteLine($"Preço médio: {media.ToString("F2", CultureInfo.InvariantCulture)}");
-
         }
     }
 }
