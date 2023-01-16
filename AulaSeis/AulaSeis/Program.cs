@@ -8,22 +8,26 @@ namespace AulaSeis
         {
             int n = int.Parse(Console.ReadLine());
 
-            double[] vect = new double[n];
+            Produto[] produtos = new Produto[n];
 
             for (int i = 0; i < n; i++)
             {
-                vect[i] = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                string nome = Console.ReadLine();
+                double preco = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                produtos[i] = new Produto { Nome = nome, Preco = preco };
             }
 
             double soma = 0;
+
             for (int i = 0; i < n; i++)
             {
-                soma += vect[i];
+                soma += produtos[i].Preco;
             }
 
             double media = soma / n;
 
-            Console.WriteLine($"Media de altura: {media.ToString("F2", CultureInfo.InvariantCulture)}");
+            Console.WriteLine($"Preço médio: {media.ToString("F2", CultureInfo.InvariantCulture)}");
+
         }
     }
 }
