@@ -6,33 +6,12 @@ namespace AulaSeis
     {
         static void Main(string[] args)
         {
-            Estudante[] vetor = new Estudante[10];
+            int s1 = Soma.Sum(2, 3);
+            int s2 = Soma.Sum(3, 4);
 
-            Console.Write("Quantos quartos serão alugados? ");
-            int n = int.Parse(Console.ReadLine());
+            Console.WriteLine(s1);
+            Console.WriteLine(s2);
 
-            for (int i = 0; i < n; i++)
-            {
-                Console.WriteLine();
-                Console.WriteLine($"Aluguel #{i+1}");
-                Console.Write("Nome: ");
-                string nome = Console.ReadLine();
-                Console.Write("Email: ");
-                string email = Console.ReadLine();
-                Console.Write("Quarto: ");
-                int quarto = int.Parse(Console.ReadLine());
-                vetor[quarto] = new Estudante(nome, email);
-            }
-
-            Console.WriteLine();
-            Console.WriteLine("Quartos ocupados:");
-            for (int i = 0; i < 10; i++)
-            {
-                if (vetor[i] != null)
-                {
-                    Console.WriteLine($"{i}: {vetor[i]}");
-                }
-            }
         }
     }
 }
