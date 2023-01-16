@@ -7,6 +7,51 @@ namespace AulaSeis
     {
         static void Main(string[] args)
         {
+
+            Console.Write("How many employees will be registered? ");
+            int n = int.Parse(Console.ReadLine());
+
+            List<Employee> listEmployees = new List<Employee>();
+
+            for (int i = 1; i <= n; i++)
+            {
+                Console.WriteLine($"Employee #{i}: ");
+                Console.Write("Id: ");
+                int id = int.Parse(Console.ReadLine());
+
+                Console.Write("Name: ");
+                string name = Console.ReadLine();
+
+                Console.Write("Salary: ");
+                double salary = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+
+                listEmployees.Add(new Employee(id, name, salary));
+                Console.WriteLine();
+            }
+
+            Console.Write("Enter the employee id that will have salary increase: ");
+            int idEmployee = int.Parse(Console.ReadLine());
+
+            Employee? emp = listEmployees.Find(x => x.Id == idEmployee);
+            if (emp != null)
+            {
+                Console.WriteLine("Enter the percentage: ");
+                double percentage = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+                emp.IncreaseSalary(percentage);
+            }
+            else
+            {
+                Console.WriteLine("This id does not exist!");
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("Updated list of employees:");
+            foreach (Employee employee in listEmployees)
+            {
+                Console.WriteLine(employee);
+            }
+
+            /*
             List<string> list = new List<string>();
 
             list.Add("Victor");
@@ -69,6 +114,7 @@ namespace AulaSeis
             {
                 Console.WriteLine(item);
             }
+            */
         }
     }
 }
