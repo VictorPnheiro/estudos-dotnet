@@ -6,39 +6,20 @@ namespace AulaSete
     {
         static void Main(string[] args)
         {
-            string original = "abcde FGHIJ ABC abc DEFG ";
-            string s1 = original.ToUpper();
-            string s2 = original.ToLower();
-            string s3 = original.Trim();
-
-            int n1 = original.IndexOf("bc");
-            int n2 = original.LastIndexOf("bc");
-
-            string s4 = original.Substring(3);
-            string s5 = original.Substring(3, 5);
-
-            string s6 = original.Replace('a', 'x');
-            string s7 = original.Replace("abc", "xy");
-
-            bool b1 = String.IsNullOrEmpty(original);
-            bool b2 = String.IsNullOrWhiteSpace(original);
-
-            Console.WriteLine("Original: -" + original + "-");
-            Console.WriteLine("ToUpper: -" + s1 + "-");
-            Console.WriteLine("ToLower: -" + s2 + "-");
-            Console.WriteLine("Trim: -" + s3 + "-");
-
-            Console.WriteLine("IndexOf('bc'): " + n1);
-            Console.WriteLine("LastIndexOf('bc'): " + n2);
-
-            Console.WriteLine("Substring(3): -" + s4 + "-");
-            Console.WriteLine("Substring(3, 5): -" + s5 + "-");
-
-            Console.WriteLine("Replace('a', 'x'): -" + s6 + "-");
-            Console.WriteLine("Replace('abc', 'xy'): -" + s7 + "-");
-
-            Console.WriteLine("IsNullOrEmpty: " + b1);
-            Console.WriteLine("IsNullOrWhiteSpace: " + b2);
+            DateTime d1 = DateTime.Parse("2023-01-17 16:27:58");
+            DateTime d2 = DateTime.Parse("2023-01-17T16:27:58Z"); // cria local DateTime
+            Console.WriteLine("d1: " + d1);
+            Console.WriteLine("d1 Kind: " + d1.Kind);
+            Console.WriteLine("d1 to Local: " + d1.ToLocalTime());
+            Console.WriteLine("d1 to Utc: " + d1.ToUniversalTime());
+            Console.WriteLine();
+            Console.WriteLine("d2: " + d2);
+            Console.WriteLine("d2 Kind: " + d2.Kind);
+            Console.WriteLine("d2 to Local: " + d2.ToLocalTime());
+            Console.WriteLine("d2 to Utc: " + d2.ToUniversalTime());
+            Console.WriteLine();
+            Console.WriteLine(d2.ToString("yyyy-MM-ddTHH:mm:ssZ")); // cuidado!
+            Console.WriteLine(d2.ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ"));
         }
     }
 }
